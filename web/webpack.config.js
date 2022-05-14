@@ -22,10 +22,21 @@ module.exports = {
             test: /\.jsx?$/,
             exclude: /node_modules/,
             loader: require.resolve("babel-loader"),
+            options: {
+              presets: [
+                ['@babel/preset-env']
+              ]
+            }
         },
         {
             test: /\.tsx?$/,
+            exclude: /node_modules/,
             loader: require.resolve("babel-loader"),
+            options: {
+              presets: [
+                ['@babel/preset-env']
+              ]
+            }
         },
       {
         test: /\.css$/,

@@ -6,7 +6,9 @@
   "scripts": {
     "start": "webpack serve  --hot --open --mode=development",
     "build": "webpack --config webpack.config.js --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "appwrite:install:windows": "docker run -it --rm --volume /var/run/docker.sock:/var/run/docker.sock --volume \"$(pwd)\"/appwrite:/usr/src/code/appwrite:rw --entrypoint=\"install\" appwrite/appwrite:0.13.4",
+    "appwrite:install:linux": "docker run -it --rm --volume /var/run/docker.sock:/var/run/docker.sock --volume \"$(pwd)\"/appwrite:/usr/src/code/appwrite:rw --entrypoint=\"install\" appwrite/appwrite:0.13.4"
   },
   "repository": {
     "type": "git",
@@ -20,14 +22,17 @@
   },
   "homepage": "https://github.com/cucucachu/elpies#readme",
   "dependencies": {
+    "@babel/runtime": "^7.17.9",
     "@types/node": "^17.0.7",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "appwrite": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.17.10",
     "@babel/preset-env": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
@@ -46,6 +51,6 @@
     "typescript": "^4.5.4",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.7.2"
+    "webpack-dev-server": "^4.9.0"
   }
 }
